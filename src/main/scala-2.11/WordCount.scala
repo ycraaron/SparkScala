@@ -12,6 +12,7 @@ object WordCount {
       .set("spark.executor.memory", "2g")
 
     val sc = new SparkContext(conf)
+
     val lines = sc.parallelize(Seq("First mo jie line", "Second ying line", "Third yang cheng rui jie line"))
     val counts = lines.flatMap(line=>line.split(" "))
       .map(word=>(word,1))
